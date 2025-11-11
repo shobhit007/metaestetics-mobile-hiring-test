@@ -29,7 +29,7 @@ export const PhoneInputComponent: React.FC<PhoneInputProps> = ({
         </Typography>
       )}
       <PhoneInput
-        defaultCode="US"
+        defaultCode={countryCode || "US"}
         value={value}
         layout="second"
         onChangeText={onChangeText}

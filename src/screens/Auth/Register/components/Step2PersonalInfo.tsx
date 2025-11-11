@@ -5,6 +5,7 @@ import { Button, DatePicker, Input, SelectInput } from "@components/common";
 import { Formik } from "formik";
 import { registerStep2ValidationSchema } from "@utils/validation";
 import { PhoneInputComponent } from "@components/common/PhoneInput/PhoneInput";
+import { GENDER_OPTIONS } from "@utils/constants";
 
 export interface Step2PersonalInfoProps {
   formData: Partial<RegisterData>;
@@ -22,12 +23,6 @@ export const Step2PersonalInfo: React.FC<Step2PersonalInfoProps> = ({
   onNext,
   onPrevious,
 }) => {
-  const genderOptions = [
-    { label: "Male", value: "male" },
-    { label: "Female", value: "female" },
-    { label: "Other", value: "other" },
-  ];
-
   const onHandleSubmit = (values: {
     countryCode: string;
     dateOfBirth: string;
@@ -121,7 +116,7 @@ export const Step2PersonalInfo: React.FC<Step2PersonalInfoProps> = ({
                 label="Gender"
                 value={values.gender}
                 onChange={handleChange("gender")}
-                options={genderOptions}
+                options={GENDER_OPTIONS}
                 error={
                   touched.gender && errors.gender ? errors.gender : undefined
                 }
