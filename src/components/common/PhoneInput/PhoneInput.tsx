@@ -1,8 +1,8 @@
-import React from 'react';
-import { View } from 'react-native';
-import PhoneInput from 'react-native-phone-number-input';
-import { Typography } from '../Typography';
-import { styles } from './PhoneInput.styles';
+import React from "react";
+import { View } from "react-native";
+import PhoneInput from "react-native-phone-number-input";
+import { Typography } from "../Typography";
+import { styles } from "./PhoneInput.styles";
 
 export interface PhoneInputProps {
   label?: string;
@@ -31,10 +31,9 @@ export const PhoneInputComponent: React.FC<PhoneInputProps> = ({
       <PhoneInput
         defaultCode="US"
         value={value}
+        layout="second"
         onChangeText={onChangeText}
-        onChangeFormattedText={(text, code) => {
-          onChangeCountryCode(`+${code.callingCode[0]}`);
-        }}
+        onChangeCountry={(country) => onChangeCountryCode(country.cca2)}
         containerStyle={styles.phoneContainer}
         textContainerStyle={styles.textContainer}
         textInputStyle={styles.textInput}
@@ -48,4 +47,3 @@ export const PhoneInputComponent: React.FC<PhoneInputProps> = ({
     </View>
   );
 };
-
